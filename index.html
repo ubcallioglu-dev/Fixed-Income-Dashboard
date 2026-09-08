@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fixed Income Dashboard</title>
+  <style>
+    :root { --ink:#eaf0fa; --muted:#91a0b5; --panel:#132035; --canvas:#0a1220; --accent:#45d3b0; --line:#263650; }
+    * { box-sizing:border-box } body { margin:0; min-height:100vh; padding:32px; font:14px/1.45 Inter,ui-sans-serif,system-ui,sans-serif; color:var(--ink); background:var(--canvas); }
+    main { max-width:920px; margin:auto } header { display:flex; justify-content:space-between; align-items:end; margin-bottom:22px } h1 { font-size:24px; margin:0 } header p { color:var(--muted); margin:5px 0 0 } .asof { color:var(--accent); font-size:12px }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:18px } .card,.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px } .label { color:var(--muted); font-size:12px } .value { font-size:25px; font-weight:650; margin-top:6px } .up { color:var(--accent); font-size:12px }
+    .grid { display:grid; grid-template-columns:1.3fr 1fr; gap:18px } h2 { font-size:14px; margin:0 0 15px } table { width:100%; border-collapse:collapse } th,td { text-align:left; padding:10px 0; border-bottom:1px solid var(--line) } th { color:var(--muted); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.04em } tr:last-child td { border:0 } .right { text-align:right }
+    svg { display:block; width:100%; height:190px } .curve { fill:none; stroke:var(--accent); stroke-width:3; stroke-linecap:round; stroke-linejoin:round } .dot { fill:var(--accent) } .axis { stroke:var(--line); stroke-width:1 } .ticks { fill:var(--muted); font-size:11px } @media (max-width:680px) { body { padding:18px }.metrics { grid-template-columns:repeat(2,1fr) }.grid { grid-template-columns:1fr } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><div><h1>Fixed Income Dashboard</h1><p>Portfolio pulse — USD investment grade</p></div><div class="asof">● DEMO DATA · Sep 08, 2026</div></header>
+    <section class="metrics">
+      <div class="card"><div class="label">Market Value</div><div class="value">$12.48m</div><div class="up">+0.32% today</div></div>
+      <div class="card"><div class="label">Yield to Maturity</div><div class="value">4.71%</div><div class="up">+6 bps MTD</div></div>
+      <div class="card"><div class="label">Modified Duration</div><div class="value">5.84</div><div class="label">years</div></div>
+      <div class="card"><div class="label">DV01</div><div class="value">$7,291</div><div class="label">per basis point</div></div>
+    </section>
+    <section class="grid">
+      <article class="panel"><h2>U.S. Treasury curve</h2><svg viewBox="0 0 480 190" role="img" aria-label="Upward sloping yield curve">
+        <line class="axis" x1="28" y1="154" x2="465" y2="154"/><line class="axis" x1="28" y1="22" x2="28" y2="154"/>
+        <polyline class="curve" points="42,108 112,86 184,74 258,56 330,45 405,38 450,34"/>
+        <g class="dot"><circle cx="42" cy="108" r="4"/><circle cx="112" cy="86" r="4"/><circle cx="184" cy="74" r="4"/><circle cx="258" cy="56" r="4"/><circle cx="330" cy="45" r="4"/><circle cx="405" cy="38" r="4"/><circle cx="450" cy="34" r="4"/></g>
+        <g class="ticks"><text x="34" y="176">3M</text><text x="104" y="176">2Y</text><text x="177" y="176">5Y</text><text x="250" y="176">10Y</text><text x="395" y="176">30Y</text><text x="2" y="30">5.0%</text><text x="2" y="154">4.0%</text></g>
+      </svg></article>
+      <article class="panel"><h2>Largest positions</h2><table><thead><tr><th>Issuer</th><th class="right">YTM</th><th class="right">Weight</th></tr></thead><tbody>
+        <tr><td>U.S. Treasury 4.125 2031</td><td class="right">4.28%</td><td class="right">18.6%</td></tr>
+        <tr><td>Microsoft 3.95 2030</td><td class="right">4.62%</td><td class="right">9.8%</td></tr>
+        <tr><td>JPMorgan 4.60 2033</td><td class="right">5.03%</td><td class="right">8.1%</td></tr>
+        <tr><td>Apple 4.45 2034</td><td class="right">4.89%</td><td class="right">7.4%</td></tr>
+      </tbody></table></article>
+    </section>
+  </main>
+</body>
+</html>
